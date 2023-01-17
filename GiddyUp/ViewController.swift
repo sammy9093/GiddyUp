@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
     
     override func viewDidLoad() {
@@ -20,6 +21,7 @@ class ViewController: UIViewController {
     @IBAction func messageButtonPressed(_ sender: UIButton) {
         print("😎 The message button was pressed!")
         messageLabel.text = "You are Awesome!"
+        imageView.image = UIImage(named: "image0")
         messageLabel.textAlignment = NSTextAlignment.left
         messageLabel.textColor = UIColor.black
     }

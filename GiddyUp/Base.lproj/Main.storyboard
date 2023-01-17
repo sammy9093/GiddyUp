@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -13,19 +13,20 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GiddyUp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vH-td-Dwe">
-                                <rect key="frame" x="41" y="59" width="297" height="79"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vH-td-Dwe">
+                                <rect key="frame" x="16" y="79" width="398" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="WWn-cN-S6s"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" systemColor="systemGreenColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMf-6A-zQ8">
-                                <rect key="frame" x="116" y="211" width="139" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMf-6A-zQ8">
+                                <rect key="frame" x="16" y="187" width="139" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Show Message">
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
@@ -34,9 +35,8 @@
                                     <action selector="messageButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kvg-MN-QSe"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTp-PS-YTB">
-                                <rect key="frame" x="111" y="272" width="149" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TTp-PS-YTB">
+                                <rect key="frame" x="265" y="187" width="149" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Show Message2">
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
@@ -46,17 +46,34 @@
                                     <action selector="messageButtonPressedSecond:" destination="BYZ-38-t0r" eventType="touchUpInside" id="UNR-kS-2YM"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Ht-sZ-AE5">
+                                <rect key="frame" x="16" y="230" width="398" height="652"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                        <constraints>
+                            <constraint firstItem="7Ht-sZ-AE5" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="1bM-xS-3Hv"/>
+                            <constraint firstItem="nMf-6A-zQ8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="3sQ-65-CfU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4vH-td-Dwe" secondAttribute="trailing" constant="16" id="75T-ju-mZF"/>
+                            <constraint firstItem="7Ht-sZ-AE5" firstAttribute="top" secondItem="nMf-6A-zQ8" secondAttribute="bottom" constant="8" id="B4P-Q1-bWN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7Ht-sZ-AE5" secondAttribute="bottom" constant="16" id="FMB-Le-qNP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="TTp-PS-YTB" secondAttribute="trailing" constant="16" id="aFL-KX-ILf"/>
+                            <constraint firstItem="TTp-PS-YTB" firstAttribute="top" secondItem="4vH-td-Dwe" secondAttribute="bottom" constant="8" id="fqF-e8-Lsm"/>
+                            <constraint firstItem="4vH-td-Dwe" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="od7-s4-6Om"/>
+                            <constraint firstItem="4vH-td-Dwe" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="r8P-vs-nhC"/>
+                            <constraint firstAttribute="trailing" secondItem="7Ht-sZ-AE5" secondAttribute="trailing" constant="16" id="rGN-ub-ftl"/>
+                            <constraint firstItem="nMf-6A-zQ8" firstAttribute="top" secondItem="4vH-td-Dwe" secondAttribute="bottom" constant="8" id="sbN-v4-CcW"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="7Ht-sZ-AE5" id="icU-em-Rst"/>
                         <outlet property="messageLabel" destination="4vH-td-Dwe" id="gwa-Mc-PM2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.824427480916029" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="31.875" y="-27.464788732394368"/>
         </scene>
     </scenes>
     <resources>
