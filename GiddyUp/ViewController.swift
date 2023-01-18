@@ -6,57 +6,97 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var messageLabel: UILabel!
     
-    var imageNumber = 0
+    var imageNumber = -1
+    var messageNumber = -1
+    var soundNumber = -1
     let totalNumberofImages = 9
+    let toalNumberOfSounds = 6
+    var audioPlayer: AVAudioPlayer!
     override func viewDidLoad() {
         super.viewDidLoad()
         print("🫰 viewDidLoad has run!")
-        messageLabel.text = "So Fab!"
+        messageLabel.text = ""
         // Do any additional setup after loading the view.
     }
     
+    
+    func playSound(name: String) {
+        if let sound = NSDataAsset(name: name) {
+            do {
+                try audioPlayer = AVAudioPlayer(data: sound.data)
+                audioPlayer.play()
+            } catch {
+                print("👿 ERROR: \(error.localizedDescription) Could not read data from file sound0")
+            }
+        } else {
+            print("👿 ERROR: Could not read data from file sound0")
+        }
+    }
+    func nonRepeatingRandom(originalNumber: Int, upperBounds: Int) -> Int {
+        var newNumber: Int
+        repeat {
+            newNumber = Int.random(in: 0...upperBounds-1)
+        } while originalNumber == newNumber
+        return newNumber
+    }
+    
+    
+
     @IBAction func messageButtonPressed(_ sender: UIButton) {
         var messages = ["You are Awesome!",
                         "You are GENUIE!",
                         "You are Da Bomb!",
                         "You are Great!",
                         "Thank you for Contacting the Genius Bar..."]
-        messageLabel.text = messages[Int.random(in: 0...messages.count-1)]
-        imageView.image = UIImage(named: "image\(Int.random(in: 0...totalNumberofImages))")
-        //Sort(ed),Shuffle(d) 
-        //could wrap "image\(imageNumber)" as variable string
-//        imageView.image = UIImage(named: "image" + String(imageNumber))
-//        imageNumber+=1
-//        if imageNumber == 10{
-//            imageNumber = 0
-//        }
-        
+        //var newMessage = messages[Int.random(in: 0...messages.count-1)]
+        //var newImage = UIImage(named: "image\(Int.random(in: 0...totalNumberofImages))")
+        //        while messageLabel.text == newMessage {
+        //            print("*** We had a repeating avalue. Both newMessage and messageLabel.text = \(newMessage) and \(messageLabel.text!)")
+        //            newMessage = messages[Int.random(in: 0...messages.count-1)]
+        //        }
+        //        messageLabel.text = newMessage
         //
-                   
-                //        print("😎 The message button was pressed!")
-                //        //messageLabel.text = "You are Awesome!"
-                //        if messageLabel.text == awesomeMessage {
-                //            messageLabel.text = genuieMessage
-                //            imageView.image = UIImage(named: "image9")
-                //            messageLabel.textAlignment = NSTextAlignment.left
-                //            messageLabel.textColor = UIColor.black
-                //        } else if messageLabel.text == "You are Great!"{
-                //            messageLabel.text = "You are Da Bomb!"
-                //            imageView.image = UIImage(named: "image5")
-                //        } else{
-                //            messageLabel.text = awesomeMessage
-                //            imageView.image = UIImage(named: "image4")
-                //        }
-                // Command + / creates multi line commenting
-                //  /* */ notation also allowed
+        //        while imageView.image == newImage {
+        //            print("*** We had a repeating image. Both imageView.image and newImage = \(imageView.image) and \(newImage)")
+        //            newImage = UIImage(named: "image\(Int.random(in: 0...totalNumberofImages))")
+        //        }
+        //        imageView.image = newImage
+        //        }
+        var newMessageNumber = Int.random(in: 0...messages.count-1)
+        //var newImage = UIImage(named: "image\(Int.random(in: 0...totalNumberofImages))")
+        while messageNumber == newMessageNumber {
+            newMessageNumber = Int.random(in: 0...messages.count-1)
+        }
+        messageNumber = newMessageNumber
+        messageLabel.text = messages[messageNumber]
+        
+        messageNumber = nonRepeatingRandom(originalNumber: messageNumber, upperBounds: messages.count-1)
+        
+        var newImageNumber = Int.random(in: 0...totalNumberofImages)
+        while imageNumber == newImageNumber {
+            newImageNumber = Int.random(in: 0...totalNumberofImages)
+        }
+        imageNumber = newImageNumber
+        imageView.image = UIImage(named: "image\(imageNumber)")
+        
+        var newSoundNumber: Int
+        repeat {
+            newSoundNumber = Int.random(in: 0..<toalNumberOfSounds)
+        } while soundNumber == newSoundNumber
+        soundNumber = newSoundNumber
+        print("*** The New Sound Number is \(soundNumber)")
+        
+        
+        playSound(name: "sound\(soundNumber)")
         
     }
-    
+        
     @IBAction func messageButtonPressedSecond(_ sender: UIButton) {
         messageLabel.text = "You are Great!"
         print("🤠 The message button was pressed!")
@@ -68,3 +108,5 @@ class ViewController: UIViewController {
     
     
 }
+
+//Stride used, .reverse
