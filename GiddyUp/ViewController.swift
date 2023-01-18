@@ -68,31 +68,34 @@ class ViewController: UIViewController {
         //        }
         //        imageView.image = newImage
         //        }
-        var newMessageNumber = Int.random(in: 0...messages.count-1)
-        //var newImage = UIImage(named: "image\(Int.random(in: 0...totalNumberofImages))")
-        while messageNumber == newMessageNumber {
-            newMessageNumber = Int.random(in: 0...messages.count-1)
-        }
-        messageNumber = newMessageNumber
+        
+//        var newMessageNumber = Int.random(in: 0...messages.count-1)
+//        //var newImage = UIImage(named: "image\(Int.random(in: 0...totalNumberofImages))")
+//        while messageNumber == newMessageNumber {
+//            newMessageNumber = Int.random(in: 0...messages.count-1)
+//        }
+//        messageNumber = newMessageNumber
+        messageNumber = nonRepeatingRandom(originalNumber: messageNumber, upperBounds: messages.count-1)
         messageLabel.text = messages[messageNumber]
         
-        messageNumber = nonRepeatingRandom(originalNumber: messageNumber, upperBounds: messages.count-1)
         
-        var newImageNumber = Int.random(in: 0...totalNumberofImages)
-        while imageNumber == newImageNumber {
-            newImageNumber = Int.random(in: 0...totalNumberofImages)
-        }
-        imageNumber = newImageNumber
+        
+//        var newImageNumber = Int.random(in: 0...totalNumberofImages)
+//        while imageNumber == newImageNumber {
+//            newImageNumber = Int.random(in: 0...totalNumberofImages)
+//        }
+//        imageNumber = newImageNumber
+//        imageView.image = UIImage(named: "image\(imageNumber)")
+        imageNumber = nonRepeatingRandom(originalNumber: imageNumber, upperBounds: totalNumberofImages-1)
         imageView.image = UIImage(named: "image\(imageNumber)")
         
-        var newSoundNumber: Int
-        repeat {
-            newSoundNumber = Int.random(in: 0..<toalNumberOfSounds)
-        } while soundNumber == newSoundNumber
-        soundNumber = newSoundNumber
-        print("*** The New Sound Number is \(soundNumber)")
-        
-        
+//        var newSoundNumber: Int
+//        repeat {
+//            newSoundNumber = Int.random(in: 0..<toalNumberOfSounds)
+//        } while soundNumber == newSoundNumber
+//        soundNumber = newSoundNumber
+//        print("*** The New Sound Number is \(soundNumber)")
+        soundNumber = nonRepeatingRandom(originalNumber: soundNumber, upperBounds: toalNumberOfSounds-1)
         playSound(name: "sound\(soundNumber)")
         
     }
