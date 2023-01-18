@@ -55,11 +55,11 @@ class ViewController: UIViewController {
                         "You are Da Bomb!",
                         "You are Great!",
                         "Thank you for Contacting the Genius Bar..."]
-
+        
         messageNumber = nonRepeatingRandom(originalNumber: messageNumber, upperBounds: messages.count-1)
         messageLabel.text = messages[messageNumber]
         
-
+        
         imageNumber = nonRepeatingRandom(originalNumber: imageNumber, upperBounds: totalNumberofImages-1)
         imageView.image = UIImage(named: "image\(imageNumber)")
         
@@ -68,7 +68,7 @@ class ViewController: UIViewController {
             playSound(name: "sound\(soundNumber)")
         }
     }
-        
+    
     @IBAction func messageButtonPressedSecond(_ sender: UIButton) {
         messageLabel.text = "You are Great!"
         print("🤠 The message button was pressed!")
@@ -82,12 +82,15 @@ class ViewController: UIViewController {
             audioPlayer.stop()
             soundLabel.text = "🔇"
         }
-        if !sender.isOn && audioPlayer  == nil{
+        if !sender.isOn && audioPlayer  == nil {
             soundLabel.text = "🔇"
         }
-        else {
-                soundLabel.text = "🔊"
-            }
+        if sender.isOn {
+            soundLabel.text = "🔊"
+        } else {
+            return
+    }
+    
     }
     
 }
