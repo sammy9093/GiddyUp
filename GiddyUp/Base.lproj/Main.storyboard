@@ -49,6 +49,20 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="7Ht-sZ-AE5">
                                 <rect key="frame" x="16" y="230" width="398" height="652"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="🔊" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lS7-g1-kxw">
+                                <rect key="frame" x="163" y="194" width="23" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" title="playSoundSwitch" translatesAutoresizingMaskIntoConstraints="NO" id="iYF-nF-rFa">
+                                <rect key="frame" x="194" y="189" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="playSoundTriggered:" destination="BYZ-38-t0r" eventType="valueChanged" id="pbI-tc-3x2"/>
+                                </connections>
+                            </switch>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemIndigoColor"/>
@@ -69,6 +83,8 @@
                     <connections>
                         <outlet property="imageView" destination="7Ht-sZ-AE5" id="icU-em-Rst"/>
                         <outlet property="messageLabel" destination="4vH-td-Dwe" id="gwa-Mc-PM2"/>
+                        <outlet property="playSoundSwitch" destination="iYF-nF-rFa" id="QXz-2H-BiW"/>
+                        <outlet property="soundLabel" destination="lS7-g1-kxw" id="wvA-tx-fSh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
